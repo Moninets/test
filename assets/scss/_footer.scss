@@ -1,0 +1,125 @@
+
+.footer {
+	margin-top: auto;
+	padding: rem-calc(60) 0 rem-calc(85);
+	width: 100%;
+
+	.ca-wrapper {
+		width: 100%;
+		max-width: 1400px;
+		margin: auto;
+		padding: 0 20px;
+	}
+}
+
+.footer__logo {
+	@include breakpoint(large down) {
+		margin: 50px auto;
+	}
+	max-width: 300px;
+	padding: 0 15px;
+	margin: auto;
+
+	img {
+		width: 100%;
+		max-height: 120px;
+	}
+}
+
+.footer__sp {
+	text-align: right;
+}
+
+.footer-menu {
+	@include list-unstyled;
+	margin: 15px 0 35px;
+
+	ul {
+		@include breakpoint(small down) {
+			flex-direction: column;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		margin: 0;
+	}
+
+	li {
+		@include breakpoint(small down) {
+			margin: auto;
+		}
+		display: inline-block;
+
+		a {
+			@include breakpoint(xlarge down) {
+				font-size: 18px;
+			}
+			display: block;
+			padding: 5px 0;
+			font-size: 20px;
+			text-transform: uppercase;
+			font-weight: 500;
+
+			&:hover {
+				color: $blue;
+			}
+		}
+
+		+ li {
+			@media (min-width: 1921px) {
+				margin-left: rem-calc(20);
+		}
+			@include breakpoint(small down) {
+					margin:auto;
+			}
+			margin-left: rem-calc(50);
+		}
+	}
+
+	&.menu-left {
+		@include breakpoint(large down) {
+			text-align: center;
+		}
+		text-align: left;
+	}
+
+	&.menu-right {
+		@include breakpoint(large down) {
+			text-align: center;
+		}
+		text-align: right;
+	}
+}
+
+.footer__copy {
+	@include breakpoint(large down) {
+		text-align: center;
+	}
+	font-size: 14px;
+	text-align: left;
+	color: $gray;
+}
+
+.ca__info {
+	@include breakpoint(large down) {
+		text-align: center;
+	}
+	text-align: right;
+
+	p {
+		font-size: 14px;
+		color: $gray;
+
+		a {
+			font-size: 14px;
+			margin-left: 5px;
+			text-decoration: none;
+			color: $dark-blue;
+			font-weight: 700;
+
+			&:hover {
+				color: $text-color;
+			}
+		}
+	}
+}

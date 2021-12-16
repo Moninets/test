@@ -1,0 +1,246 @@
+/* ---------------------------------------
+	Social networks
+--------------------------------------- */
+
+.stay-tuned {
+	@include list-unstyled;
+
+	margin-right: -5px;
+	margin-left: -5px;
+	font-size: 0;
+}
+
+.stay-tuned__item {
+	display: inline-block;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.stay-tuned__link {
+	display: block;
+
+	.fab {
+		display: block;
+		font-size: 16px;
+	}
+}
+
+/* ---------------------------------------
+	Side by side
+--------------------------------------- */
+
+.sbs-block {
+	position: relative;
+	overflow: hidden;
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	&--reverse {
+		.cell.sbs-block__img-wrap {
+			right: 50%;
+			left: 0;
+		}
+	}
+}
+
+.sbs-block__content-wrap {
+	display: flex;
+	flex-direction: column;
+}
+
+.sbs-block__content {
+	display: flex;
+	align-items: center;
+
+	@include breakpoint(medium) {
+		min-height: 400px;
+	}
+}
+
+.sbs-block__content-inner {
+	width: 100%;
+}
+
+.cell.sbs-block__img-wrap {
+	@include breakpoint(medium) {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 50%;
+		width: 50%;
+		height: 100%;
+		margin: 0;
+	}
+
+	@include breakpoint(small down) {
+		margin-bottom: 25px;
+	}
+}
+
+.sbs-block__img {
+	width: 100%;
+	height: 100%;
+}
+
+.ca-container {
+	width: 100%;
+	margin: auto;
+	padding: 0 30px;
+}
+
+.ca-container-medium {
+	width: 100%;
+	max-width: 1530px;
+	margin: auto;
+	padding: 0 15px;
+}
+
+.image-animate {
+	position: absolute;
+	z-index: -2;
+	transition: all 0.5s ease-in;
+	animation-duration: 4.0s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-name: rotateLeft;
+}
+
+/* ------------------------------------
+   Block: Single Page
+------------------------------------- */
+
+
+.ca-single-page {
+	.ca-banner {
+		background-color: $lite-brown;
+		height: rem-calc(436);
+		position: relative;
+		top: rem-calc(85);
+
+		.ca__image {
+			left: inherit;
+			width: rem-calc(620);
+			right: 0;
+		}
+
+		&__wrapper {
+			@include breakpoint(small down) {
+				flex-direction: column;
+				padding: 40px 15px
+			}
+			display: flex;
+			width: 100%;
+			max-width: rem-calc(1600);
+			margin: auto;
+			justify-content: space-between;
+			padding: 0 15px;
+			align-items: center;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+
+			.ca__image {
+				height: auto;
+				width: rem-calc(620);
+				z-index: 0;
+			}
+
+			.ca__title {
+				@include breakpoint(small down) {
+					font-size: 50px;
+					text-align: center;
+					margin-bottom: 25px;
+				}
+				font-size: rem-calc(72);
+				max-width: rem-calc(1200);
+				position: relative;
+				z-index: 1;
+				width: 100%;
+
+				small {
+					font-size: rem-calc(72);
+					font-weight: 800;
+				}
+			}
+		}
+	}
+
+	.main-content {
+		padding: rem-calc(90) 0;
+
+		.entry__content {
+			max-width: 1028px;
+			margin: 50px auto;
+			font-family: $font;
+			font-size: rem-calc(18);
+			font-weight: 400;
+			color: #787C8F;
+
+			ul {
+				li {
+					position: relative;
+					font-family: $font;
+					font-weight: 400;
+					color: $gray;
+					font-size: rem-calc(18);
+					&::marker {
+						font-size: 0;
+					}
+
+					&:before {
+						content: '';
+						position: absolute;
+						left: -15px;
+						top: 10px;
+						background-color: #787C8F;
+						border-radius: 50%;
+						width: rem-calc(7);
+						height: rem-calc(7);
+					}
+				}
+			}
+
+			.h2 {
+				margin-bottom: rem-calc(42);
+			}
+
+			p {
+				font-family: $font;
+				font-size: rem-calc(18);
+				font-weight: 400;
+				color: $gray;
+			}
+
+			.two-columns {
+				margin: rem-calc(45) 0 rem-calc(64);
+				display: flex;
+				justify-content: center;
+			}
+
+			.h3 {
+				margin-top: rem-calc(45);
+			}
+
+			.h4 {
+				color: $gray;
+				margin-bottom: 20px;
+			}
+
+		}
+	}
+
+	.return-lik {
+		padding: rem-calc(20);
+		text-align: center;
+		max-width: rem-calc(190);
+		display: block;
+		margin: rem-calc(100) auto 0;
+	}
+}
+
+
+/* ------------------------------------
+   Block: End Single Page
+------------------------------------- */

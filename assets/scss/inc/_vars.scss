@@ -1,0 +1,64 @@
+// Project variables
+
+
+$text-color: #212121;
+
+$main-color: $text-color;
+$sub-color: $main-color;
+
+$blue: #0072BD;
+$lite-blue: #D6E6FF;
+$dark-blue: #252D6C;
+$gray: #787C8F;
+$lite-brown: #F9F3ED;
+$white: #fff;
+
+$main-font: 'Red Hat Display', sans-serif;
+$sub-font: 'Open Sans', sans-serif;
+$font: 'Arial', sans-serif;
+$fa: 'Font Awesome 5 Free';
+$fab: 'Font Awesome 5 Brands';
+
+// Font Awesome Vars
+$fa-font-path: "../fonts";
+$fa-font-display: swap;
+
+// Project mixins
+
+
+// Custom fonts
+@font-face {
+	font-family: 'TT Norms';
+	src: url('../fonts/TTNorms-Medium.woff2') format('woff2'),
+	url('../fonts/TTNorms-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'TT Norms';
+	src: url('../fonts/TTNorms-Regular.woff2') format('woff2'),
+	url('../fonts/TTNorms-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'TT Norms';
+	src: url('../fonts/TTNorms-Bold.woff2') format('woff2'),
+	url('../fonts/TTNorms-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Arial';
+	src: url('../fonts/ArialMT.woff2') format('woff2'),
+	url('../fonts/ArialMT.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}

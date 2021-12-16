@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bcc90ffb-da0e-44f5-9409-e69a34284d1b" name="cabinet2-live" url="https://robert.mediweb.co/">
+        <fileTransfer rootFolder="/public_html/wp-content/themes/cabinet2" host="vps11.mediweb.co" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

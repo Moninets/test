@@ -1,0 +1,297 @@
+/* ---------------------------------------
+	Typography
+--------------------------------------- */
+@function rem-calc($values, $base: null) {
+	$rem-values: ();
+	$count: length($values);
+
+	// If no base is defined, defer to the global font size
+	@if $base == null {
+		$base: $global-font-size;
+	}
+
+	// If the base font size is a %, then multiply it by 16px
+	// This is because 100% font size = 16px in most all browsers
+	@if unit($base) == '%' {
+		$base: ($base / 100%) * 16px;
+	}
+
+	// Using rem as base allows correct scaling
+	@if unit($base) == 'rem' {
+		$base: strip-unit($base) * 16px;
+	}
+
+	@if $count == 1 {
+		@return -zf-to-rem($values, $base);
+	}
+
+	@for $i from 1 through $count {
+		$rem-values: append($rem-values, -zf-to-rem(nth($values, $i), $base));
+	}
+
+	@return $rem-values;
+}
+
+html {
+	@include breakpoint(small down) {
+		font-size: 16px;
+	}
+	font-size: 0.833vw;
+	overflow-x: hidden;
+}
+
+body {
+	font-size: rem-calc(16);
+	color: $text-color;
+	font-family: $main-font;
+	overflow-x: hidden;
+}
+
+
+h2, .h2 {
+	small {
+		font-size: rem-calc(48);
+	}
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	a {
+		color: inherit;
+	}
+	small {
+		font-family: $main-font;
+		font-weight: 600;
+		line-height: 1;
+		color:$text-color;
+	}
+}
+
+h1, .h1 {
+	/*basic heading styles*/
+	@include breakpoint(small down) {
+		font-size: 46px;
+	}
+	font-family: $main-font;
+	font-size: rem-calc(66);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.02em;
+}
+
+h2, .h2 {
+	font-family: $main-font;
+	font-size: rem-calc(48);
+	font-weight: 700;
+	line-height: 1;
+	/*basic heading styles*/
+}
+
+h3, .h3 {
+	/*basic heading styles*/
+	@include breakpoint(small down) {
+		font-size: 30px;
+	}
+	font-family: $main-font;
+	font-size: rem-calc(32);
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: -0.01em;
+}
+
+h4, .h4 {
+	/*basic heading styles*/
+	font-family: $main-font;
+	font-size: rem-calc(24);
+	font-weight: 400;
+	line-height: 1;
+}
+
+h5, .h5 {
+	/*basic heading styles*/
+	font-family: $main-font;
+	font-size: rem-calc(20);
+	font-weight: 500;
+	line-height: 1;
+}
+
+h6, .h6 {
+	/*basic heading styles*/
+}
+
+p {
+	/*basic paragraph styles*/
+	&:empty {
+		display: none;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+	small {
+		font-family: $main-font;
+		font-weight: 300;
+		line-height: 1;
+	}
+}
+
+ul {
+	/*basic list styles*/
+	font-size: inherit;
+
+	li {
+		/*basic list-item styles*/
+	}
+}
+
+address {
+	font-style: normal;
+	margin-bottom: $global-margin;
+}
+
+a {
+	color: $main-color;
+	transition: all 0.2s ease-in-out;
+
+	&:hover, &:focus {
+		/*basic hover and focus effects*/
+		color: darken($main-color, 20);
+	}
+}
+
+/* ---------------------------------------
+	Forms/Inputs
+--------------------------------------- */
+
+.no-outline {
+	button, a, [tabindex] {
+		outline: none;
+	}
+}
+
+/* Placeholder styling */
+
+input, textarea {
+	&::placeholder {
+		opacity: 1;
+	}
+}
+
+/* Input Styling */
+
+[type=color],
+[type=date],
+[type=datetime-local],
+[type=datetime],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url],
+[type=week],
+textarea,
+select,
+.select-styled {
+	$height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')) + rem-calc(get-border-value($input-border, 'width') * 2);
+	/* STYLES GO THERE */
+	height: $height;
+	margin-bottom: 0;
+}
+
+textarea[rows] {
+	/*Styles for TextArea*/
+	height: 150px;
+	max-width: 100%;
+}
+
+[type=number] {
+	-moz-appearance: textfield;
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+	margin: 0;
+	-webkit-appearance: none;
+}
+
+[type=checkbox],
+[type=file],
+[type=radio] {
+	margin-bottom: 0;
+}
+
+button, .button, input[type='submit'], input[type='reset'], input[type='button'] {
+	border-width: $button-hollow-border-width;
+	transition: all 0.2s ease-in-out;
+	text-decoration: none;
+
+	&:hover, &:focus {
+
+	}
+}
+
+/* Button additional styles */
+
+.button {
+	&:hover, &:focus {
+		/*basic hover and focus effects*/
+	}
+}
+
+.blue-button {
+	background-color: $blue;
+	color: $white;
+	text-transform: uppercase;
+	padding: rem-calc(18) rem-calc(30);
+	border: 1px solid $blue;
+	letter-spacing: 0.02em;
+	font-weight: 500;
+	text-decoration: none;
+	box-shadow: 0 16px 16px -12px #3984B5;
+
+	&:hover {
+		background-color: $white;
+		color: $blue;
+	}
+}
+.control {
+	@include breakpoint(small down) {
+		bottom: 40px;
+	}
+	position: absolute;
+	bottom: rem-calc(150);
+	left: rem-calc(50);
+	//display: flex;
+	display: none;
+
+	.btn-mute {
+		font-size: 20px;
+		background: rgba(255, 255, 255, .2);
+
+		&:before {
+			content: '🔊';
+		}
+
+		&.mute {
+			background: rgba(255, 255, 255, .2);
+
+			&:before {
+				content: '🔈';
+			}
+
+		}
+	}
+	.btn-play {
+		display: none;
+	}
+}
+pre {
+	text-align: left;
+}
+html body #player {
+	pointer-events: auto !important;
+}
+
